@@ -5,15 +5,19 @@ provider "aws" {
 resource "aws_instance" "master" {
   ami           = "ami-0a7d80731ae1b2435"
   instance_type = "t2.medium"
+  key_name      = "Assignment-Key"
+
   tags = {
-    Name = "Master-Node"
+    Name = "master-node"
   }
 }
 
-resource "aws_instance" "monitoring_node" {
+resource "aws_instance" "monitoring" {
   ami           = "ami-0a7d80731ae1b2435"
   instance_type = "t2.medium"
+  key_name      = "Assignment-Key"
+
   tags = {
-    Name = "Monitoring-Node"
+    Name = "monitoring-node"
   }
 }
