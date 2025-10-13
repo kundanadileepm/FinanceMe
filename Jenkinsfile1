@@ -1,0 +1,19 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('Git Checkout') {
+            steps {
+                echo 'Cloning the repo'
+                git branch: 'main', url: 'https://github.com/kundanadileepm/FinanceMe.git'
+            }
+        }
+
+        stage('Build') {
+            steps {
+                echo 'Packaging the code'
+                sh 'mvn clean package'
+            }
+        }   
+    }
+}
