@@ -1,11 +1,9 @@
-# Use OpenJDK 17 slim image
-FROM openjdk:17-jdk-slim
+# Use OpenJDK 11
+FROM openjdk:11-jdk
 
-# Build argument for the JAR file
+# Set JAR file
 ARG JAR_FILE=target/financeme-0.0.1-SNAPSHOT.jar
-
-# Copy the JAR into the container
 COPY ${JAR_FILE} app.jar
 
-# Run the JAR
+# Run the application
 ENTRYPOINT ["java", "-jar", "/app.jar"]
